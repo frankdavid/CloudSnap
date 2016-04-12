@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-US" ng-app="main">
+<head>
+    <link rel="stylesheet" href="@routes.Assets.at("bower_components/bootstrap/dist/css/bootstrap.min.css")"/>
+    <link rel="stylesheet" href="@routes.Assets.at("style.css")"/>
+    <script src="@routes.Assets.at("bower_components/jquery/dist/jquery.min.js")"></script>
+    <script src="@routes.Assets.at("bower_components/angular/angular.min.js")"></script>
+    <script src="@routes.Assets.at("main.js")"></script>
+    <meta charset="UTF-8">
+    <title>Cloudsnap</title>
+</head>
+<body ng-controller="MainCtrl">
+
+<div class="url-container">
+    <form class="form-inline url-form" ng-submit="onSubmit()">
+        <input type="text" class="form-control" ng-model="url" placeholder="http://google.com"
+               ng-blur="blur()" ng-focus="focus()"/>
+        <button class="btn-lg btn-primary btn">Snap</button>
+    </form>
+</div>
+</body>
+</html>

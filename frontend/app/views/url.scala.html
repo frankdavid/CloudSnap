@@ -1,0 +1,31 @@
+@(url: Url, imageUrl: String)
+<!doctype html>
+<html lang="en-US" ng-app="main">
+    <head>
+        <link rel="stylesheet" href="@routes.Assets.at("bower_components/bootstrap/dist/css/bootstrap.min.css")"/>
+        <link rel="stylesheet" href="@routes.Assets.at("bower_components/font-awesome/css/font-awesome.css")"/>
+        <link rel="stylesheet" href="@routes.Assets.at("style.css")"/>
+        <script src="@routes.Assets.at("bower_components/jquery/dist/jquery.min.js")"></script>
+        <script src="@routes.Assets.at("bower_components/angular/angular.min.js")"></script>
+        <script src="@routes.Assets.at("main.js")"></script>
+        <meta charset="UTF-8">
+        <title>Cloudsnap :: @url.url</title>
+    </head>
+    <body ng-controller="MainCtrl">
+        <div class="img-container">
+            <form class="form-inline url-form" ng-submit="onSubmit()">
+                <input type="text" class="form-control" ng-model="url" placeholder="http://google.com" ng-init="url='@url.url'"
+                ng-blur="blur()" ng-focus="focus()"/>
+                <button class="btn-lg btn-primary btn">Snap</button>
+            </form>
+            <div class="img-border">
+                <div class="pull-right">
+                    First snapped on @url.addedAt.format("MMM d, YYYY 'at' HH:mm")
+                </div>
+                <a href="@url.url">@url.url</a>
+                <img src="@imageUrl" id="screenshot" alt="" ng-show="!screenshotError"/>
+                <i class="fa fa-spinner fa-spin" ng-show="!screenshotLoaded && screenshotError"></i>
+            </div>
+        </div>
+    </body>
+</html>

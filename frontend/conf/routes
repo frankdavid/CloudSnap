@@ -1,0 +1,3 @@
+GET        /assets/*file        controllers.Assets.at(path = "/public", file)
+GET        /                    controllers.Main.index
+GET        /snap/*url           controllers.Main.url(url)
